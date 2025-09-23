@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lcims-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lcims-frontend
+  template:
+    metadata:
+      labels:
+        app: lcims-frontend
+    spec:
+      containers:
+        - name: lcims-frontend
+          image: ejahdilan/frontend:production
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html/config.json
+              subPath: config.json
+      volumes:
+        - name: config-volume
+          configMap:
+            name: frontend-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+data:
+  config.json: |
+    {
+      "API_URL": "http://lcims-backend:3000"
+    }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lcims-frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: lcims-frontend
+  ports:
+    - port: 80
+      targetPort: 8000
