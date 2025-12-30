@@ -1,4 +1,4 @@
-# 🚀 DevOps Training Project: MongoDB + Mongo Express on Docker & Kubernetes
+# 🚀 DevOps Training Project: MongoDB + Mongo Express with Kubernetes
 
 This repository contains **DevOps training materials and hands-on exercises** demonstrating how to containerize and deploy a simple **MongoDB + Mongo Express** application using **Docker** and **Kubernetes**.
 
