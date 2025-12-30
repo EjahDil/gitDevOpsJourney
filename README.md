@@ -15,4 +15,4 @@ The application stack consists of:
 - **Docker** – For containerizing applications
 - **Kubernetes** – For orchestrating and managing containers
 
-This project simulates a **real DevOps deployment pipeline** using local Kubernetes (Minikube / Kind) or a cloud Kubernetes cluster.
+This project simulates a **real DevOps deployment pipeline** using local Kubernetes (minikube) or a cloud Kubernetes cluster.
